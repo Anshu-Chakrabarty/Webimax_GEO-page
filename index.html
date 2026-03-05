@@ -62,9 +62,9 @@
         }
         
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: auto;
+            padding: 0 20px;
         }
         
         section {
@@ -115,7 +115,7 @@
         
         .hero {
             position: relative;
-            background: linear-gradient(135deg, #1f5fbf, #0d3e86, #1f5fbf);
+            background: linear-gradient(135deg, #1f5fbf, #346cc0, #3471cd);
             background-size: 300% 300%;
             animation: heroGradient 12s ease infinite;
             color: #fff;
@@ -825,8 +825,9 @@
         /* FOOTER */
         
         .site-footer {
-            background: #eef4fa;
-            padding: 70px 0 0;
+            background: #e2e8f3;
+            padding: 80px 0 0;
+            border-top: 1px solid #e6edf6;
         }
         /* layout */
         
@@ -841,41 +842,52 @@
         .footer-left p {
             color: #64748b;
             max-width: 420px;
-            margin-top: 15px;
-            line-height: 1.6;
+            margin-top: 16px;
+            line-height: 1.65;
+            font-size: 15px;
         }
         /* right column */
         
         .footer-right {
             display: flex;
             flex-direction: column;
-            gap: 6px;
-            margin-top: 35px;
-            /* pushes phone + privacy down */
+            align-items: flex-start;
+            gap: 8px;
+            margin-top: 10px;
         }
         /* phone */
         
         .footer-phone {
             font-size: 22px;
             font-weight: 700;
-            color: var(--primary);
+            color: #2563eb;
             text-decoration: none;
+            transition: .2s;
+        }
+        
+        .footer-phone:hover {
+            text-decoration: underline;
         }
         /* privacy link */
         
         .footer-policy {
             font-size: 14px;
-            color: var(--primary);
+            color: #0f172a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer-policy:hover {
             text-decoration: underline;
         }
         /* copyright */
         
         .footer-bottom {
             text-align: center;
-            padding: 20px;
-            border-top: 1px solid #dbeafe;
+            padding: 22px 0;
+            border-top: 1px solid #dbe6f3;
             color: #64748b;
-            margin-top: 40px;
+            margin-top: 60px;
             font-size: 14px;
         }
         /* STICKY CTA */
@@ -892,30 +904,318 @@
             text-decoration: none;
         }
         /* RESPONSIVE */
+        /* ============================= */
+        /* TABLET RESPONSIVE */
+        /* ============================= */
         
-        @media(max-width:900px) {
+        @media (max-width: 900px) {
+            /* HERO */
+            .hero {
+                padding: 60px 0 70px;
+            }
             .hero-wrap,
             .founder-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
+            .hero h1 {
+                font-size: 46px;
+                line-height: 1.15;
+            }
+            .hero-desc {
+                font-size: 17px;
+                max-width: 100%;
+            }
+            /* FORM */
+            .hero-form {
+                width: 100%;
+                max-width: 520px;
+                margin: auto;
+            }
+            /* SERVICES */
             .service-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
+            /* TRUST */
             .trust-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
             }
+            /* SEO SECTION */
             .seo-insights {
                 grid-template-columns: 1fr;
             }
+            /* FOOTER */
             .footer-grid {
                 flex-direction: column;
                 text-align: center;
+                gap: 30px;
             }
         }
+        /* ============================= */
+        /* MOBILE RESPONSIVE */
+        /* ============================= */
+        /* ================================= */
+        /* TABLET RESPONSIVE (<= 992px) */
+        /* ================================= */
         
-        @media(max-width:600px) {
+        @media (max-width: 992px) {
+            /* HERO */
+            .hero {
+                padding: 60px 0 70px;
+            }
+            .hero-wrap {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero h1 {
+                font-size: 46px;
+            }
+            .hero-desc {
+                font-size: 17px;
+            }
+            .hero-form {
+                max-width: 520px;
+                margin: auto;
+            }
+            /* SERVICES */
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            /* TRUST */
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+            /* SEO INSIGHTS */
+            .seo-insights {
+                grid-template-columns: 1fr;
+            }
+            /* FOUNDER SECTION */
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .founder-card {
+                padding: 40px 30px;
+            }
+            /* REVIEWS */
+            .reviews-card {
+                max-width: 90%;
+                padding: 40px 28px;
+            }
+            .reviews-card h2 {
+                font-size: 28px;
+            }
+            /* FAQ */
+            .faq {
+                padding: 70px 0;
+            }
+            .faq-item {
+                padding: 18px;
+            }
+            /* FOOTER */
+            .footer-grid {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-left p {
+                max-width: 500px;
+                margin: auto;
+            }
+        }
+        /* ================================= */
+        /* MOBILE RESPONSIVE (<= 768px) */
+        /* ================================= */
+        /* ================================= */
+        /* TABLET (<= 992px) */
+        /* ================================= */
+        
+        @media (max-width:992px) {
+            /* HERO */
+            .hero {
+                padding: 70px 0;
+            }
+            .hero-wrap {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero-form {
+                max-width: 520px;
+                margin: auto;
+            }
+            /* SERVICES */
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
+            }
+            /* TRUST */
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
+            }
+            /* FOUNDER */
+            .founder-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .founder-image {
+                order: -1;
+            }
+            .founder-card {
+                padding: 40px 28px;
+            }
+            /* REVIEWS */
+            .reviews-card {
+                max-width: 90%;
+                margin: auto;
+            }
+            /* FOOTER */
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                gap: 30px;
+            }
+        }
+        /* ================================= */
+        /* MOBILE (<=768px) */
+        /* ================================= */
+        
+        @media (max-width:768px) {
+            section {
+                padding: 60px 0;
+            }
+            /* HEADER FIX */
+            .header-wrap {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .header-actions {
+                flex-wrap: wrap;
+            }
+            /* HERO */
+            .hero h1 {
+                font-size: 38px;
+                line-height: 1.2;
+            }
+            .hero-desc {
+                font-size: 16px;
+            }
+            .hero-wrap {
+                gap: 35px;
+            }
+            /* FEATURES */
+            .feature {
+                padding: 16px;
+                border-radius: 12px;
+            }
+            /* FORM */
+            .hero-form {
+                padding: 26px;
+            }
+            .hero-form input {
+                padding: 14px;
+                font-size: 14px;
+            }
+            .hero-form button {
+                padding: 15px;
+                font-size: 15px;
+            }
+            /* SERVICES */
             .service-grid {
                 grid-template-columns: 1fr;
+            }
+            /* TRUST */
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+            /* FOUNDER */
+            .founder-card h2 {
+                font-size: 28px;
+            }
+            .founder-meta {
+                font-size: 14px;
+            }
+            /* REVIEWS */
+            .reviews-card {
+                padding: 35px 22px;
+            }
+            .rating-score {
+                font-size: 28px;
+            }
+            .rating-stars {
+                font-size: 18px;
+            }
+            /* FAQ */
+            .faq-item {
+                font-size: 14px;
+                padding: 18px;
+            }
+            /* FOOTER */
+            .footer-phone {
+                font-size: 18px;
+            }
+            .footer-bottom {
+                font-size: 13px;
+            }
+        }
+        /* ================================= */
+        /* SMALL MOBILE (<=480px) */
+        /* ================================= */
+        
+        @media (max-width:480px) {
+            .container {
+                padding: 0 18px;
+            }
+            /* HERO */
+            .hero {
+                padding: 50px 0;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-kicker {
+                font-size: 13px;
+            }
+            .hero-desc {
+                font-size: 15px;
+            }
+            .feature strong {
+                font-size: 15px;
+            }
+            /* FORM */
+            .hero-form h3 {
+                font-size: 20px;
+            }
+            .rating-bar {
+                font-size: 13px;
+            }
+            .hero-form {
+                padding: 22px;
+            }
+            /* BUTTON */
+            .review-btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            /* TRUST */
+            .trust-card {
+                padding: 24px;
+            }
+            /* REVIEWS */
+            .reviews-card {
+                padding: 28px 18px;
+            }
+            /* FOUNDER */
+            .founder-card {
+                padding: 26px 20px;
             }
         }
     </style>
@@ -931,7 +1231,7 @@
             <img src="WebiMax_Logo-Digital.png" height="40">
 
             <div class="nav-right">
-                <a href="tel:8566441190" class="phone">856-644-1190</a>
+                <a href="tel:856-644-6919" class="phone">856-644-6919</a>
                 <a href="#" class="cta">Free Strategy Call</a>
             </div>
 
@@ -1007,7 +1307,7 @@
 
                 <div class="rating-bar">
                     <span class="stars">★★★★★</span>
-                    <span class="rating-score">5/5 Client Rating</span>
+                    <span class="rating-score"> Client Rating</span>
                 </div>
 
                 <form>
@@ -1485,8 +1785,8 @@ Get My Free Strategy Call →
 
             <div>
 
-                <a href="tel:8568306359" class="footer-phone">
-856-830-6359
+                <a href="tel:856-644-6919" class="footer-phone">
+856-644-6919
 </a>
 
                 <a href="#">Privacy Policy</a>

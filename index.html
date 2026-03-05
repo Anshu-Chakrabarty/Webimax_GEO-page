@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WebiMax | Custom Digital Strategy</title>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "What is Generative Engine Optimization (GEO)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Generative Engine Optimization (GEO) is the process of optimizing content so that AI search systems like ChatGPT, Gemini, and Perplexity can identify and cite a website as a trusted source."
+                }
+            }, {
+                "@type": "Question",
+                "name": "How does GEO work with SEO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SEO improves rankings in traditional search engines while GEO structures content so AI systems can interpret, summarize, and recommend the website in conversational responses."
+                }
+            }, {
+                "@type": "Question",
+                "name": "Why should businesses optimize for GEO?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Modern search behavior includes AI assistants and answer engines. GEO ensures businesses remain visible when users receive AI-generated recommendations."
+                }
+            }]
+        }
+    </script>
+
+    <style>
+        /* GLOBAL */
+        
+         :root {
+            --primary: #1f5fbf;
+            --primary-dark: #0d3e86;
+            --accent: #ff6a2a;
+            --bg-light: #eef4fa;
+            --dark: #0f172a;
+            --muted: #64748b;
+            --radius: 16px;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f7fbff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        section {
+            padding: 90px 0;
+        }
+        /* HEADER */
+        
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+        }
+        
+        .nav-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .phone {
+            border: 2px solid var(--primary);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #1f5fbf, #0d3e86);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        /* HERO */
+        /* HERO SECTION */
+        
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #1f5fbf, #0d3e86, #1f5fbf);
+            background-size: 300% 300%;
+            animation: heroGradient 12s ease infinite;
+            color: #fff;
+            padding: 70px 0 70px;
+            /* reduced bottom space */
+            overflow: hidden;
+        }
+        /* animated gradient */
+        
+        @keyframes heroGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        /* grid overlay */
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .07) 1px, transparent 1px);
+            background-size: 44px 44px;
+            opacity: .25;
+            pointer-events: none;
+        }
+        
+        .hero-form::after {
+            content: "";
+            position: absolute;
+            right: -120px;
+            bottom: -120px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, .35), transparent 70%);
+            z-index: -1;
+        }
+        /* layout */
+        
+        .hero-wrap {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 460px;
+            gap: 70px;
+            align-items: flex-start;
+        }
+        
+        .hero-left {
+            margin-top: 0;
+            padding-top: 0;
+        }
+        
+        .hero-wrap {
+            align-items: flex-start;
+        }
+        /* kicker */
+        
+        .hero-kicker {
+            margin-top: 0;
+            margin-bottom: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #dbeafe;
+        }
+        /* headline */
+        
+        .hero h1 {
+            font-size: 62px;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 22px;
+            letter-spacing: -.5px;
+            text-shadow: 0 6px 20px rgba(0, 0, 0, .25);
+        }
+        /* highlighted phrase */
+        
+        .highlight {
+            color: #ff8a4c;
+        }
+        /* description */
+        
+        .hero-desc {
+            font-size: 18px;
+            opacity: .92;
+            margin-bottom: 36px;
+            max-width: 540px;
+            line-height: 1.6;
+        }
+        /* feature cards */
+        
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            max-width: 540px;
+            margin-bottom: 0;
+        }
+        
+        .feature {
+            display: flex;
+            gap: 16px;
+            background: rgba(255, 255, 255, .12);
+            padding: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, .18);
+            transition: .25s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, .18);
+        }
+        
+        .feature strong {
+            font-size: 16px;
+            font-weight: 700;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            opacity: .9;
+            margin-top: 4px;
+        }
+        /* check icon */
+        
+        .check {
+            background: linear-gradient(135deg, #2dd4bf, #14b8a6);
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .2);
+        }
+        /* FORM CARD */
+        
+        .hero-form {
+            background: #fff;
+            color: #111;
+            padding: 45px;
+            border-radius: 20px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+            position: relative;
+            margin-bottom: 0;
+        }
+        /* glow behind form */
+        
+        .hero-form::before {
+            content: "";
+            position: absolute;
+            top: -45px;
+            left: -45px;
+            right: -45px;
+            bottom: -45px;
+            background: radial-gradient(circle, rgba(255, 255, 255, .25), transparent);
+            z-index: -1;
+        }
+        /* form heading */
+        
+        .hero-form h3 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        /* rating bar */
+        
+        .rating-bar {
+            background: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            color: #ff7a18;
+            font-weight: 600;
+            display: inline-block;
+        }
+        /* form labels */
+        
+        .hero-form label {
+            font-size: 14px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+        }
+        /* inputs */
+        
+        .hero-form input {
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            margin-bottom: 18px;
+            font-size: 14px;
+            transition: .2s;
+        }
+        
+        .hero-form input:focus {
+            outline: none;
+            border-color: #1f5fbf;
+            box-shadow: 0 0 0 3px rgba(31, 95, 191, .15);
+        }
+        /* consent checkbox */
+        
+        .form-consent {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 13px;
+            color: #475569;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        
+        .form-consent input {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 18px;
+            height: 18px;
+            border-radius: 5px;
+            border: 2px solid #cbd5e1;
+            background: #fff;
+            display: inline-block;
+            position: relative;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .form-consent input:checked+.checkmark {
+            background: #1f5fbf;
+            border-color: #1f5fbf;
+        }
+        
+        .form-consent input:checked+.checkmark::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 6px;
+            height: 10px;
+            border: 2px solid #fff;
+            border-top: none;
+            border-left: none;
+            transform: rotate(45deg);
+        }
+        /* CTA button */
+        
+        .hero-form button {
+            width: 100%;
+            background: linear-gradient(135deg, #ff6a2a, #ff8a4c);
+            color: #fff;
+            border: none;
+            padding: 18px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: .25s;
+        }
+        
+        .hero-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+        }
+        /* privacy */
+        
+        .privacy {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+        /* LOGO SLIDER */
+        
+        .logos {
+            background: #fff;
+            text-align: center;
+        }
+        
+        .logo-title {
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .logo-slider {
+            overflow: hidden;
+        }
+        
+        .logo-track {
+            display: flex;
+            gap: 70px;
+            animation: logoScroll 20s linear infinite;
+        }
+        
+        .logo-track img {
+            height: 55px;
+            opacity: .6;
+        }
+        
+        @keyframes logoScroll {
+            0% {
+                transform: translateX(0)
+            }
+            100% {
+                transform: translateX(-50%)
+            }
+        }
+        
+        .geo-seo {
+            background: #fff;
+            text-align: center;
+        }
+        
+        .geo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .geo-box {
+            background: #eef4fa;
+            padding: 30px;
+            border-radius: 16px;
+        }
+        /* SERVICES */
+        
+        .services {
+            background: var(--bg-light);
+            text-align: center;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        .service-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: rgba(31, 95, 191, .1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-icon img {
+            height: 32px;
+        }
+        /* SEO SECTION */
+        
+        .seo-insights {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .seo-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+        }
+        /* TRUST */
+        
+        .trust {
+            background: var(--bg-light);
+            padding: 90px 0;
+        }
+        /* GRID */
+        
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+        /* CARD */
+        
+        .trust-card {
+            background: #fff;
+            padding: 36px 30px;
+            border-radius: 18px;
+            text-align: center;
+            position: relative;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .06);
+            transition: all .3s ease;
+            overflow: hidden;
+        }
+        /* TOP ACCENT BORDER */
+        
+        .trust-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #1f5fbf, #3b82f6, #1f5fbf);
+            opacity: .9;
+        }
+        /* HOVER EFFECT */
+        
+        .trust-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+            border-color: #cbd5e1;
+        }
+        /* TITLE */
+        
+        .trust-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        /* TEXT */
+        
+        .trust-card p {
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.6;
+        }
+        /* SMALL TRUST TEXT */
+        
+        .form-trust {
+            text-align: center;
+            font-size: 13px;
+            color: #64748b;
+            margin-top: 12px;
+            letter-spacing: .2px;
+        }
+        
+        .trust-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(31, 95, 191, .08);
+            border-radius: 12px;
+            color: #1f5fbf;
+        }
+        
+        .trust-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        /* FOUNDER */
+        
+        .founder-section {
+            background: #eef4fa;
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .founder-card {
+            background: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, .08);
+            position: relative;
+        }
+        
+        .founder-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 40px;
+            height: 60%;
+            width: 4px;
+            background: #1f5fbf;
+        }
+        
+        .founder-kicker {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #1f5fbf;
+            display: block;
+            margin-bottom: 18px;
+        }
+        
+        .founder-card h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+        
+        .founder-meta span {
+            display: block;
+            color: #64748b;
+            font-size: 14px;
+        }
+        /* REVIEWS */
+        /* REVIEWS SECTION */
+        
+        .section-head {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            margin-bottom: 50px;
+        }
+        
+        .kicker {
+            display: inline-block;
+            padding: 6px 14px;
+            background: #e8f0fb;
+            color: #1f5fbf;
+            font-weight: 700;
+            font-size: 12px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .section-head h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .section-head p {
+            color: #64748b;
+            font-size: 16px;
+        }
+        
+        .review-sub {
+            font-size: 15px;
+            color: #64748b;
+            margin-bottom: 18px;
+            letter-spacing: .3px;
+        }
+        /* SECTION */
+        
+        .reviews-section {
+            background: #f3f6fb;
+            padding: 90px 0;
+        }
+        /* CARD */
+        
+        .reviews-card {
+            background: #fff;
+            max-width: 480px;
+            margin: auto;
+            padding: 40px 35px;
+            border-radius: 18px;
+            text-align: center;
+            position: relative;
+            /* gradient border */
+            border: 1px solid transparent;
+            background-image: linear-gradient(#fff, #fff), linear-gradient(135deg, #dbeafe, #fde2d4);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            /* soft shadow */
+            box-shadow: 0 18px 45px rgba(0, 0, 0, .08);
+            transition: .25s ease;
+        }
+        
+        .reviews-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+        }
+        /* TITLE */
+        
+        .reviews-card h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        /* RATING */
+        
+        .reviews-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+        
+        .rating-score {
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        .rating-stars {
+            color: #ff5a1f;
+            font-size: 18px;
+            letter-spacing: 3px;
+        }
+        /* BUTTON */
+        
+        .review-btn {
+            display: inline-block;
+            padding: 12px 26px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            background: linear-gradient(135deg, #d9e6f7, #f1d5c9);
+            color: #0f172a;
+            border: 1px solid #c7d6ec;
+            transition: all .25s ease;
+        }
+        
+        .review-btn:hover {
+            background: #1f5fbf;
+            color: #fff;
+            border-color: #1f5fbf;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+        }
+        /* POWERED BY */
+        
+        .reviews-powered {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            color: #64748b;
+            font-size: 13px;
+        }
+        
+        .reviews-powered img {
+            height: 20px;
+        }
+        
+        .ai-answers {
+            background: #fff;
+            text-align: center;
+        }
+        
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ai-card {
+            background: #f4f7fc;
+            padding: 30px;
+            border-radius: 16px;
+            text-align: left;
+        }
+        
+        .ai-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        /* FAQ */
+        
+        .faq-item {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+        }
+        
+        .bottom-cta {
+            background: linear-gradient(135deg, #1f5fbf, #0d3e86);
+            color: #fff;
+            text-align: center;
+            padding: 70px 0;
+        }
+        
+        .bottom-cta p {
+            color: #e0f2fe;
+            margin-bottom: 25px;
+        }
+        /* FOOTER */
+        
+        .site-footer {
+            background: #eef4fa;
+            padding: 70px 0 0;
+        }
+        /* layout */
+        
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        /* left text */
+        
+        .footer-left p {
+            color: #64748b;
+            max-width: 420px;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+        /* right column */
+        
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 35px;
+            /* pushes phone + privacy down */
+        }
+        /* phone */
+        
+        .footer-phone {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        /* privacy link */
+        
+        .footer-policy {
+            font-size: 14px;
+            color: var(--primary);
+            text-decoration: underline;
+        }
+        /* copyright */
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #dbeafe;
+            color: #64748b;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+        /* STICKY CTA */
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #ff6a2a, #ff7f45);
+            color: #fff;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        /* RESPONSIVE */
+        
+        @media(max-width:900px) {
+            .hero-wrap,
+            .founder-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .seo-insights {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media(max-width:600px) {
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="container nav">
+
+            <img src="WebiMax_Logo-Digital.png" height="40">
+
+            <div class="nav-right">
+                <a href="tel:8566441190" class="phone">856-644-1190</a>
+                <a href="#" class="cta">Free Strategy Call</a>
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container hero-wrap">
+
+            <!-- LEFT CONTENT -->
+
+            <div class="hero-left">
+
+                <p class="hero-kicker">
+                    <strong>AI-Driven SEO & Reputation Strategy</strong> • Trusted by Growing Brands
+                </p>
+
+                <h1>
+                    Turn Search Visibility Into <span class="highlight">Consistent Business Growth</span>
+                </h1>
+
+                <p class="hero-desc">
+                    We combine advanced SEO, GEO optimization, and reputation strategy to help brands dominate search results, strengthen credibility, and convert online visibility into measurable revenue.
+                </p>
+
+
+                <!-- FEATURE LIST -->
+
+                <div class="hero-features">
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <div class="feature-text">
+                            <strong>AI-Driven Search Optimization</strong>
+                            <p>Strategies aligned with modern search engines and AI discovery platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <div class="feature-text">
+                            <strong>Authority & Reputation Growth</strong>
+                            <p>Build trust signals across search results, reviews, and digital platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        <div class="feature-text">
+                            <strong>Revenue-Focused Digital Strategy</strong>
+                            <p>Campaigns engineered to increase visibility, leads, and long-term ROI.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT FORM -->
+
+            <div class="hero-form" id="lead-form">
+
+                <p class="form-topline">
+                    Free consultation • No obligation
+                </p>
+
+                <h3>Get Your Free Strategy Call</h3>
+
+                <div class="rating-bar">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-score">5/5 Client Rating</span>
+                </div>
+
+                <form>
+
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Work Email</label>
+                        <input type="email" placeholder="you@company.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" placeholder="(555) 555-5555" required>
+                    </div>
+
+                    <label class="form-consent">
+<input type="checkbox" required>
+<span class="checkmark"></span>
+I agree to be contacted by phone, SMS, and email regarding my request.
+</label>
+
+                    <button type="submit" class="cta-submit">
+Get My Free Strategy Call →
+</button>
+
+                    <p class="privacy">
+                        Your information is strictly confidential. By submitting, you agree to our privacy policy.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- LOGOS -->
+
+    <section class="logos">
+
+        <div class="container">
+
+            <h2 class="logo-title">
+                Rated the Best Reputation Management Service For Over 17 Years!
+            </h2>
+
+            <div class="logo-slider">
+
+                <div class="logo-track">
+
+                    <img src="us_news.png">
+                    <img src="clutch.png">
+                    <img src="newsweek.png">
+                    <img src="upcity.png">
+
+                    <img src="us_news.png">
+                    <img src="clutch.png">
+                    <img src="newsweek.png">
+                    <img src="upcity.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="geo-seo">
+
+        <div class="container">
+
+            <h2>Where GEO and SEO Work Together</h2>
+
+            <p>
+                Generative Engine Optimization (GEO) and Search Engine Optimization (SEO) are shaping the future of digital visibility. Businesses must optimize for both traditional search rankings and AI-powered discovery engines.
+            </p>
+
+            <div class="geo-grid">
+
+                <div class="geo-box">
+                    <h4>Search Engine Optimization</h4>
+                    <p>
+                        Improve rankings on Google and search engines through technical optimization, keyword strategy, and authoritative content.
+                    </p>
+                </div>
+
+                <div class="geo-box">
+                    <h4>Generative Engine Optimization</h4>
+                    <p>
+                        Ensure your brand appears in AI-driven answers across platforms that use generative search and recommendation models.
+                    </p>
+                </div>
+
+                <div class="geo-box">
+                    <h4>Unified Visibility Strategy</h4>
+                    <p>
+                        Our approach combines SEO performance with GEO readiness to maximize visibility across both search results and AI responses.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="ai-answers">
+
+        <div class="container">
+
+            <h2>Expert Insights on GEO and SEO</h2>
+
+            <div class="ai-grid">
+
+                <div class="ai-card">
+
+                    <h3>What is Generative Engine Optimization (GEO)?</h3>
+
+                    <p>
+                        Generative Engine Optimization (GEO) is the process of optimizing content so that AI-powered platforms such as ChatGPT, Perplexity, and Gemini can identify, summarize, and cite your website as a trusted source of information.
+                    </p>
+
+                </div>
+
+                <div class="ai-card">
+
+                    <h3>How is GEO different from SEO?</h3>
+
+                    <p>
+                        While SEO focuses on ranking in traditional search engines like Google, GEO focuses on ensuring your content is structured in a way that AI systems can interpret and recommend within conversational responses.
+                    </p>
+
+                </div>
+
+                <div class="ai-card">
+
+                    <h3>Why do businesses need GEO and SEO together?</h3>
+
+                    <p>
+                        Search behavior is evolving. Businesses must optimize both for search engine rankings and for AI-generated recommendations to maintain visibility across modern discovery platforms.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SERVICES -->
+
+    <section class="services">
+
+        <div class="container">
+
+            <h2>Our Digital Marketing Services</h2>
+
+            <p>Data-backed strategies tailored to your business growth goals.</p>
+
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="seo.png"></div>
+                    <h3>SEO</h3>
+                    <p>Comprehensive optimization for sustainable rankings.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="ppc.jfif"></div>
+                    <h3>PPC</h3>
+                    <p>High-ROI paid campaigns built for performance.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="reputation.png"></div>
+                    <h3>Reputation Management</h3>
+                    <p>Protect and enhance your brand visibility.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="social.jfif"></div>
+                    <h3>Social Media</h3>
+                    <p>Strategic engagement campaigns that build authority.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="webdesign.png"></div>
+                    <h3>Web Design</h3>
+                    <p>Modern conversion-focused digital experiences.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><img src="leads.jfif"></div>
+                    <h3>Lead Generation</h3>
+                    <p>Targeted systems that drive qualified prospects.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- SEO AI -->
+
+    <section class="seo-section">
+
+        <div class="container">
+
+            <h2>Why SEO Still Matters</h2>
+
+            <p>
+                Modern SEO combines traditional optimization with AI-driven insights to uncover search intent, optimize content faster, and continuously adapt strategies based on performance data.
+            </p>
+
+            <div class="seo-insights">
+
+                <div class="seo-box">
+                    <h4>AI Keyword Intelligence</h4>
+                    <p>AI tools analyze search patterns and identify high-value keyword opportunities faster than manual research.</p>
+                </div>
+
+                <div class="seo-box">
+                    <h4>Data-Driven Content</h4>
+                    <p>Content strategies align with search intent and ranking signals to improve authority and organic visibility.</p>
+                </div>
+
+                <div class="seo-box">
+                    <h4>Continuous Optimization</h4>
+                    <p>Performance monitoring and AI insights help refine campaigns and improve rankings consistently.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TRUST -->
+
+    <section class="trust">
+
+        <div class="container">
+
+            <div class="trust-grid">
+
+                <!-- CARD 1 -->
+
+                <div class="trust-card">
+
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+<path d="M12 3L4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z" stroke="currentColor" stroke-width="2"/>
+</svg>
+                    </div>
+
+                    <h4>Proven Since 2008</h4>
+
+                    <p>
+                        Over a decade of measurable results.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 2 -->
+
+                <div class="trust-card">
+
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+<circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+<path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="2"/>
+</svg>
+                    </div>
+
+                    <h4>Dedicated Contact</h4>
+
+                    <p>
+                        Clear communication and strategic oversight.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 3 -->
+
+                <div class="trust-card">
+
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+<path d="M4 12l4-4 4 4 4-4 4 4" stroke="currentColor" stroke-width="2"/>
+<path d="M4 16l4-4 4 4 4-4 4 4" stroke="currentColor" stroke-width="2"/>
+</svg>
+                    </div>
+
+                    <h4>Founder’s Pledge</h4>
+
+                    <p>
+                        Leadership-level accountability in every campaign.
+                    </p>
+
+                </div>
+
+
+                <!-- CARD 4 -->
+
+                <div class="trust-card">
+
+                    <div class="trust-icon">
+                        <svg viewBox="0 0 24 24" fill="none">
+<rect x="5" y="3" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+<path d="M8 7h8M8 11h8M8 15h5" stroke="currentColor" stroke-width="2"/>
+</svg>
+                    </div>
+
+                    <h4>No Long-Term Contracts</h4>
+
+                    <p>
+                        We earn your business monthly.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOUNDER -->
+
+    <section class="founder-section">
+
+        <div class="container founder-grid">
+
+            <div class="founder-card">
+
+                <span class="founder-kicker">FOUNDER COMMITMENT</span>
+
+                <h2>Strategy backed by direct founder accountability.</h2>
+
+                <p>
+                    “I will always make myself available to you. To facilitate this, I provide all clients with my personal cell phone number.”
+                </p>
+
+                <div class="founder-meta">
+                    <strong>Ken Wisnefski</strong>
+                    <span>Founder • Est. 2008 • 10,000+ Clients Served</span>
+                </div>
+
+            </div>
+
+            <div>
+                <img src="ken2.jpg">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="reviews-section">
+
+        <div class="container">
+
+            <!-- SECTION HEADER -->
+
+            <div class="section-head">
+
+                <span class="kicker">PROVEN RESULTS</span>
+
+                <h2>Trusted by teams that care about reputation</h2>
+
+                <p>
+                    No matter the objective, delivering results on time is paramount.
+                </p>
+
+            </div>
+
+            <!-- REVIEW CARD -->
+
+            <div class="reviews-card">
+
+                <h2>WebiMax Reviews</h2>
+
+                <p class="review-sub">
+                    Rated among the top reputation management agencies
+                </p>
+
+                <div class="reviews-rating">
+
+                    <span class="rating-score">5.0</span>
+                    <span class="rating-stars">★★★★★</span>
+
+                </div>
+
+                <a href="https://clutch.co/profile/webimax?utm_source=widget&utm_medium=8&utm_campaign=widget&utm_content=num_reviews&utm_term=lp.webimax.com#reviews" target="_blank" class="review-btn">
+
+26+ Verified Client Reviews →
+
+</a>
+
+                <div class="reviews-powered">
+
+                    <span>Powered by</span>
+                    <img src="clutch.png">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq">
+
+        <div class="container">
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <strong>How soon can we see results?</strong>
+                <br>Timelines depend on service mix and market competitiveness.
+            </div>
+
+            <div class="faq-item">
+                <strong>Do you require long contracts?</strong>
+                <br>No — we believe in performance-based retention.
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="bottom-cta">
+
+        <div class="container">
+
+            <h2>Ready to Improve Your Search Visibility?</h2>
+
+            <p>
+                Schedule your confidential strategy session and discover growth opportunities for your business.
+            </p>
+
+            <a href="#lead-form" class="cta">Get Your Free Strategy Call</a>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-left">
+
+                <img src="WebiMax_Logo-Digital.png" height="45">
+
+                <p>
+                    WebiMax is a pioneer in digital reputation management, helping over 10,000 clients secure their brand integrity since 2008.
+                </p>
+
+            </div>
+
+            <div>
+
+                <a href="tel:8568306359" class="footer-phone">
+856-830-6359
+</a>
+
+                <a href="#">Privacy Policy</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 WebiMax LLC. All rights reserved.
+        </div>
+
+    </footer>
+
+    <a href="#lead-form" class="sticky-cta">Get Free Strategy Call</a>
+
+</body>
+
+</html>

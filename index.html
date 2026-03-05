@@ -47,6 +47,10 @@
             --dark: #0f172a;
             --muted: #64748b;
             --radius: 16px;
+            /* NEW */
+            --shadow-soft: 0 10px 25px rgba(0, 0, 0, .05);
+            --shadow-mid: 0 18px 45px rgba(0, 0, 0, .08);
+            --shadow-strong: 0 30px 70px rgba(0, 0, 0, .12);
         }
         
         * {
@@ -55,10 +59,16 @@
         
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
             background: #f7fbff;
             color: var(--dark);
             line-height: 1.6;
+        }
+        
+        button {
+            font-family: inherit;
+            border: none;
+            cursor: pointer;
         }
         
         .container {
@@ -74,7 +84,7 @@
         
         header {
             background: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, .05);
+            box-shadow: var(--shadow-mid);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -89,26 +99,47 @@
         
         .nav-right {
             display: flex;
-            gap: 20px;
             align-items: center;
+            gap: 16px;
         }
+        /* PHONE BUTTON */
         
         .phone {
-            border: 2px solid var(--primary);
-            padding: 8px 16px;
-            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: 40px;
+            border: 1px solid #dbe3ef;
+            background: #f7f9fc;
+            font-weight: 700;
+            color: #0f172a;
             text-decoration: none;
-            color: var(--primary);
-            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, .05);
+            transition: .25s;
         }
         
+        .phone:hover {
+            background: #fff;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+        }
+        /* CTA BUTTON */
+        
         .cta {
-            background: linear-gradient(135deg, #1f5fbf, #0d3e86);
+            background: linear-gradient(135deg, #ff7a2f, #ff9a5f);
             color: #fff;
-            padding: 10px 22px;
-            border-radius: 8px;
+            padding: 13px 28px;
+            border-radius: 40px;
+            font-weight: 700;
             text-decoration: none;
-            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(255, 122, 47, .35);
+            transition: .25s;
+        }
+        
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 35px rgba(255, 122, 47, .45);
         }
         /* HERO */
         /* HERO SECTION */
@@ -263,7 +294,7 @@
             font-weight: 700;
             font-size: 15px;
             flex-shrink: 0;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, .2);
+            box-shadow: var(--shadow-mid);
         }
         /* FORM CARD */
         
@@ -272,7 +303,7 @@
             color: #111;
             padding: 45px;
             border-radius: 20px;
-            box-shadow: 0 30px 70px rgba(0, 0, 0, .35);
+            box-shadow: var(--shadow-mid);
             position: relative;
             margin-bottom: 0;
         }
@@ -329,7 +360,7 @@
         .hero-form input:focus {
             outline: none;
             border-color: #1f5fbf;
-            box-shadow: 0 0 0 3px rgba(31, 95, 191, .15);
+            box-shadow: var(--shadow-mid);
         }
         /* consent checkbox */
         
@@ -380,7 +411,7 @@
         
         .hero-form button {
             width: 100%;
-            background: linear-gradient(135deg, #ff6a2a, #ff8a4c);
+            background: linear-gradient(135deg, var(--accent), #ff8a4c);
             color: #fff;
             border: none;
             padding: 18px;
@@ -389,11 +420,17 @@
             cursor: pointer;
             font-size: 16px;
             transition: .25s;
+            box-shadow: var(--shadow-mid);
         }
         
         .hero-form button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, .25);
+            box-shadow: var(--shadow-mid);
+        }
+        
+        .hero-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-mid);
         }
         /* privacy */
         
@@ -404,38 +441,66 @@
             line-height: 1.5;
         }
         /* LOGO SLIDER */
+        /* LOGO SECTION */
         
         .logos {
             background: #fff;
             text-align: center;
+            padding: 70px 0;
+        }
+        /* title */
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+            display: block;
         }
         
         .logo-title {
             font-size: 30px;
             margin-bottom: 50px;
+            font-weight: 700;
+            color: var(--dark);
         }
+        /* slider wrapper */
         
         .logo-slider {
             overflow: hidden;
+            position: relative;
         }
+        /* moving track */
         
         .logo-track {
             display: flex;
+            align-items: center;
             gap: 70px;
-            animation: logoScroll 20s linear infinite;
+            width: max-content;
+            animation: logoScroll 25s linear infinite;
         }
+        /* logos */
         
-        .logo-track img {
-            height: 55px;
+        .logos .logo-track img {
+            height: 42px;
+            width: auto;
             opacity: .6;
+            filter: grayscale(100%);
+            transition: .3s;
         }
+        /* hover effect */
+        
+        .logos .logo-track img:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        /* infinite animation */
         
         @keyframes logoScroll {
             0% {
-                transform: translateX(0)
+                transform: translateX(0);
             }
             100% {
-                transform: translateX(-50%)
+                transform: translateX(-50%);
             }
         }
         
@@ -475,7 +540,7 @@
             background: #fff;
             padding: 40px;
             border-radius: var(--radius);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+            box-shadow: var(--shadow-mid);
         }
         
         .service-icon {
@@ -508,7 +573,7 @@
             background: #fff;
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+            box-shadow: var(--shadow-mid);
         }
         /* TRUST */
         
@@ -534,7 +599,7 @@
             text-align: center;
             position: relative;
             border: 1px solid #e2e8f0;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, .06);
+            box-shadow: var(--shadow-mid);
             transition: all .3s ease;
             overflow: hidden;
         }
@@ -546,7 +611,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, #1f5fbf, #3b82f6, #1f5fbf);
             opacity: .9;
         }
@@ -554,7 +619,7 @@
         
         .trust-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+            box-shadow: var(--shadow-mid);
             border-color: #cbd5e1;
         }
         /* TITLE */
@@ -615,7 +680,7 @@
             background: #fff;
             padding: 50px;
             border-radius: 20px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, .08);
+            box-shadow: var(--shadow-mid);
             position: relative;
         }
         
@@ -692,11 +757,17 @@
             background: #f3f6fb;
             padding: 90px 0;
         }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
         /* CARD */
         
         .reviews-card {
             background: #fff;
-            max-width: 480px;
+            max-width: 520px;
             margin: auto;
             padding: 40px 35px;
             border-radius: 18px;
@@ -708,13 +779,13 @@
             background-origin: border-box;
             background-clip: padding-box, border-box;
             /* soft shadow */
-            box-shadow: 0 18px 45px rgba(0, 0, 0, .08);
+            box-shadow: var(--shadow-mid);
             transition: .25s ease;
         }
         
         .reviews-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, .12);
+            box-shadow: var(--shadow-mid);
         }
         /* TITLE */
         
@@ -761,7 +832,7 @@
             color: #fff;
             border-color: #1f5fbf;
             transform: translateY(-2px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, .15);
+            box-shadow: var(--shadow-mid);
         }
         /* POWERED BY */
         
@@ -825,9 +896,13 @@
         /* FOOTER */
         
         .site-footer {
-            background: #e2e8f3;
+            background: #eaf1fb;
             padding: 80px 0 0;
-            border-top: 1px solid #e6edf6;
+            border-top: 1px solid #dbe6f3;
+        }
+        
+        a {
+            transition: .25s;
         }
         /* layout */
         
@@ -836,6 +911,7 @@
             justify-content: space-between;
             align-items: flex-start;
             gap: 40px;
+            flex-wrap: wrap;
         }
         /* left text */
         
@@ -851,9 +927,14 @@
         .footer-right {
             display: flex;
             flex-direction: column;
+            gap: 6px;
             align-items: flex-start;
-            gap: 8px;
-            margin-top: 10px;
+        }
+        
+        .footer-logo {
+            height: 45px;
+            width: auto;
+            margin-bottom: 15px;
         }
         /* phone */
         
@@ -889,6 +970,13 @@
             color: #64748b;
             margin-top: 60px;
             font-size: 14px;
+        }
+        
+        .footer-left img {
+            height: 60px;
+            width: auto;
+            display: block;
+            margin-bottom: 18px;
         }
         /* STICKY CTA */
         
@@ -1218,6 +1306,15 @@
                 padding: 26px 20px;
             }
         }
+        
+        @media(max-width:768px) {
+            .logo-track {
+                gap: 40px;
+            }
+            .logos .logo-track img {
+                height: 30px;
+            }
+        }
     </style>
 
 </head>
@@ -1228,11 +1325,13 @@
 
         <div class="container nav">
 
-            <img src="WebiMax_Logo-Digital.png" height="40">
+            <div class="logo">
+                <img src="WebiMax_Logo-Digital.png" alt="WebiMax">
+            </div>
 
             <div class="nav-right">
-                <a href="tel:856-644-6919" class="phone">856-644-6919</a>
-                <a href="#" class="cta">Free Strategy Call</a>
+                <a href="tel:856-644-6919" class="phone">📞 856-644-6919</a>
+                <a href="#" class="cta"> Get Free Strategy Call</a>
             </div>
 
         </div>
@@ -1773,9 +1872,10 @@ Get My Free Strategy Call →
 
         <div class="container footer-grid">
 
+            <!-- LEFT SIDE -->
             <div class="footer-left">
 
-                <img src="WebiMax_Logo-Digital.png" height="45">
+                <img src="WebiMax_Logo-Digital.png" alt="WebiMax Logo" class="footer-logo">
 
                 <p>
                     WebiMax is a pioneer in digital reputation management, helping over 10,000 clients secure their brand integrity since 2008.
@@ -1783,13 +1883,16 @@ Get My Free Strategy Call →
 
             </div>
 
-            <div>
+            <!-- RIGHT SIDE -->
+            <div class="footer-right">
 
                 <a href="tel:856-644-6919" class="footer-phone">
-856-644-6919
-</a>
+                856-644-6919
+            </a>
 
-                <a href="#">Privacy Policy</a>
+                <a href="#" class="footer-policy">
+                Privacy Policy
+            </a>
 
             </div>
 

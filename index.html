@@ -80,7 +80,7 @@
         /* GLOBAL SECTION SPACING */
         
         section {
-            padding: 70px 0;
+            padding: 55px 0;
             margin-bottom: 20px;
         }
         
@@ -485,20 +485,37 @@
             background: #fff;
             text-align: center;
         }
-        /* Intro text lines */
+        /* container */
         
         .search-evolution {
-            max-width: 900px;
-            margin: 20px auto 45px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+        /* FIRST LINE (bigger and wider) */
+        
+        .search-evolution .evo-line:nth-of-type(1) {
+            font-size: 22px;
+            /* bigger than next line */
+            max-width: 800px;
+            /* wider */
+            font-weight: 500;
+        }
+        /* SECOND LINE (smaller) */
+        
+        .search-evolution .evo-line:nth-of-type(2) {
+            font-size: 17px;
+            max-width: 520px;
+        }
+        /* normal paragraph style */
         
         .evo-line {
-            font-size: 18px;
             color: #334155;
             margin-bottom: 12px;
             line-height: 1.6;
+            text-align: center;
         }
+        /* highlight box */
         
         .evo-highlight {
             font-size: 22px;
@@ -522,7 +539,8 @@
         
         .geo-box {
             background: #eef4fa;
-            padding: 28px;
+            padding: 24px;
+            /* reduced from ~28px so box height stays same */
             border-radius: 16px;
             text-align: center;
             transition: .25s;
@@ -532,16 +550,20 @@
             transform: translateY(-5px);
             box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
         }
+        /* BOX HEADLINES */
         
         .geo-box h4 {
-            font-size: 18px;
+            font-size: 19px;
+            /* slightly bigger */
             font-weight: 700;
             margin-bottom: 10px;
             color: #0f172a;
         }
+        /* CONTENT */
         
         .geo-box p {
-            font-size: 14px;
+            font-size: 15px;
+            /* slightly bigger */
             color: #475569;
             line-height: 1.6;
         }
@@ -565,21 +587,24 @@
             text-align: center;
         }
         /* GRID */
+        /* GRID */
         
         .service-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 28px;
+            /* reduced gap */
             max-width: 1050px;
             margin: auto;
-            margin-top: 45px;
+            margin-top: 30px;
         }
         /* CARD */
         
         .service-card {
             background: linear-gradient(145deg, #ffffff, #f6f9ff);
-            padding: 45px;
-            border-radius: var(--radius);
+            padding: 30px;
+            /* reduced height */
+            border-radius: 16px;
             box-shadow: var(--shadow-mid);
             text-align: left;
             position: relative;
@@ -625,8 +650,9 @@
         /* TITLE */
         
         .service-card h3 {
-            font-size: 21px;
-            margin-bottom: 16px;
+            font-size: 22px;
+            /* bigger heading */
+            margin-bottom: 14px;
             color: #0f172a;
         }
         /* LIST */
@@ -638,9 +664,10 @@
         }
         
         .framework-list li {
-            font-size: 15px;
-            margin-bottom: 10px;
-            padding-left: 24px;
+            font-size: 16px;
+            /* bigger text */
+            margin-bottom: 8px;
+            padding-left: 22px;
             position: relative;
             color: #475569;
         }
@@ -753,10 +780,10 @@
         /* AI SIDE SPECIAL DESIGN */
         
         .ai-column .seo-item {
-            background: linear-gradient(135deg, #5f87cc, #4c78c3);
-            color: white;
-            border: 1.5px solid #eb1023;
-            box-shadow: 0 20px 40px rgba(205, 38, 247, 0.25);
+            background: linear-gradient(135deg, #2f6fd0, #1f5fbf);
+            color: #fff;
+            border: 1.5px solid #1f5fbf;
+            box-shadow: 0 12px 30px rgba(31, 95, 191, .25);
         }
         
         .ai-column .seo-item p {
@@ -864,20 +891,22 @@
             transition: opacity .35s ease;
         }
         /* TEXT */
+        /* small intro text */
         
         .query-intro {
-            font-size: 14px;
+            font-size: 16px;
+            /* was 14px */
             color: #64748b;
-            margin-bottom: 10px;
-            transition: color .3s ease;
+            margin-bottom: 12px;
         }
+        /* main text inside circle */
         
         .success-card h4 {
-            font-size: 18px;
+            font-size: 22px;
+            /* was 18px */
             font-weight: 700;
             line-height: 1.5;
             color: #0f172a;
-            transition: color .3s ease;
         }
         /* HOVER EFFECT */
         
@@ -1367,18 +1396,22 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
         }
         /* headings */
+        /* CARD HEADLINE */
         
         .ai-card h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 18px;
+            font-size: 20px;
+            /* was 18px */
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #0f172a;
         }
-        /* text */
+        /* CARD CONTENT */
         
         .ai-card p {
-            font-size: 14px;
+            font-size: 15.5px;
+            /* was 14px */
             color: #475569;
-            line-height: 1.6;
+            line-height: 1.65;
         }
         /* responsive */
         
@@ -1394,6 +1427,7 @@
             }
         }
         /* FAQ */
+        /* FAQ ITEM */
         /* FAQ ITEM */
         
         .faq-item {
@@ -1419,6 +1453,32 @@
         .faq-item:hover {
             border-color: #cbd5e1;
             background: #f8fbff;
+        }
+        /* HIDDEN FAQ BLOCK */
+        
+        .more-faqs {
+            display: none;
+        }
+        /* READ MORE BUTTON */
+        
+        .faq-toggle {
+            display: block;
+            margin: 22px auto 0;
+            padding: 10px 26px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #1f5fbf, #3b82f6);
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            transition: all .25s ease;
+        }
+        /* BUTTON HOVER */
+        
+        .faq-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, .15);
         }
         /* CTA SECTION */
         
@@ -1455,6 +1515,24 @@
         /* SECOND LINE */
         
         .cta-sub {
+            margin-top: 6px;
+            margin-bottom: 30px;
+        }
+        /* first paragraph (largest line) */
+        
+        .bottom-cta p {
+            color: #e0f2fe;
+            font-size: 20px;
+            /* bigger */
+            max-width: 700px;
+            margin: 0 auto 10px;
+            line-height: 1.6;
+        }
+        /* second line (slightly smaller) */
+        
+        .bottom-cta .cta-sub {
+            font-size: 17px;
+            /* smaller */
             margin-top: 6px;
             margin-bottom: 30px;
         }
@@ -1681,6 +1759,23 @@
                 padding: 0 18px;
             }
         }
+        /* GLOBAL SECTION HEADLINE SIZE */
+        
+        section h2 {
+            font-size: 30px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        /* override larger custom titles */
+        
+        .logo-title,
+        .success-title,
+        .case-title,
+        .why-title,
+        .section-head h2,
+        .bottom-cta h2 {
+            font-size: 30px;
+        }
     </style>
 
 </head>
@@ -1699,7 +1794,7 @@
                 <a href="tel:856-644-6919" class="phone">
                     <i class="fa-solid fa-phone"></i> 856-644-6919
                 </a>
-                <a href="#" class="cta">Schedule Your AI Search Audit</a>
+                <a href="#" class="cta">Get Your AI Search Visibility Audit</a>
             </div>
 
         </div>
@@ -1787,7 +1882,7 @@ I agree to be contacted by phone, SMS, and email regarding my request.
 </label>
 
                     <button type="submit" class="cta-submit">
-Schedule Your AI Search Audit 
+Get Your AI Search Visibility Audit
 </button>
 
                     <p class="privacy">
@@ -1903,9 +1998,12 @@ Schedule Your AI Search Audit
             <h2>What Is Generative AI Optimization?</h2>
 
             <p class="ai-desc">
-                Generative AI optimization (also called GEO) ensures your brand appears inside AI-generated answers when users ask questions. Instead of only ranking links, the goal is to become the trusted source AI systems cite when generating answers.
+                Generative AI optimization (also called GEO) ensures your brand appears inside AI-generated answers when users ask questions instead of only ranking links.
             </p>
 
+            <p class="ai-desc">
+                <strong>Our goal is to become the trusted source AI systems cite when generating answers.</strong>
+            </p>
             <h3 class="ai-sub">This includes optimization for:</h3>
 
             <div class="ai-grid">
@@ -1966,8 +2064,8 @@ Schedule Your AI Search Audit
                     <ul class="framework-list">
                         <li>Google search</li>
                         <li>AI-generated answers</li>
-                        <li>knowledge graphs</li>
-                        <li>entity databases</li>
+                        <li>Knowledge graphs</li>
+                        <li>Entity databases</li>
                     </ul>
 
                 </div>
@@ -1983,10 +2081,10 @@ Schedule Your AI Search Audit
                     <h3>Authority & Entity Optimization</h3>
 
                     <ul class="framework-list">
-                        <li>expert content</li>
-                        <li>entity SEO</li>
-                        <li>digital PR</li>
-                        <li>structured data</li>
+                        <li>Expert content</li>
+                        <li>Entity SEO</li>
+                        <li>Digital PR</li>
+                        <li>Structured data</li>
                     </ul>
 
                 </div>
@@ -2002,10 +2100,10 @@ Schedule Your AI Search Audit
                     <h3>AI-Friendly Content Strategy</h3>
 
                     <ul class="framework-list">
-                        <li>conversational queries</li>
-                        <li>question-based searches</li>
+                        <li>Conversational queries</li>
+                        <li>Question-based searches</li>
                         <li>AI citation signals</li>
-                        <li>topical authority</li>
+                        <li>Topical authority</li>
                     </ul>
 
                 </div>
@@ -2022,9 +2120,9 @@ Schedule Your AI Search Audit
 
                     <ul class="framework-list">
                         <li>AI search engines</li>
-                        <li>featured snippets</li>
+                        <li>Featured snippets</li>
                         <li>AI Overviews</li>
-                        <li>knowledge sources</li>
+                        <li>Knowledge sources</li>
                     </ul>
 
                 </div>
@@ -2354,30 +2452,35 @@ Schedule Your AI Search Audit
             <h2>Frequently Asked Questions</h2>
 
             <div class="faq-item">
-                <strong>What is Generative AI SEO?</strong>
-                <br> Generative AI SEO (also called Generative Engine Optimization or GEO) focuses on optimizing your content so AI platforms like ChatGPT, Google AI Overviews, and Gemini can understand, reference, and recommend your brand when generating
-                answers to user questions.
+                <strong>What is Generative AI SEO?</strong><br> Generative AI SEO (also called Generative Engine Optimization or GEO) focuses on optimizing your content so AI platforms like ChatGPT, Google AI Overviews, and Gemini can understand, reference,
+                and recommend your brand when generating answers to user questions.
             </div>
 
             <div class="faq-item">
-                <strong>How is GEO different from SEO?</strong>
-                <br> Traditional SEO focuses on ranking web pages in search results. GEO focuses on structuring content, authority signals, and entity data so AI systems can cite your brand directly when generating answers.
+                <strong>How is GEO different from SEO?</strong><br> Traditional SEO focuses on ranking web pages in search results. GEO focuses on structuring content, authority signals, and entity data so AI systems can cite your brand directly when
+                generating answers.
             </div>
 
             <div class="faq-item">
-                <strong>Can AI search drive website traffic?</strong>
-                <br> Yes. When AI systems reference your brand as a trusted source, users often click through to learn more. AI visibility can increase credibility, brand awareness, and qualified organic traffic.
+                <strong>Can AI search drive website traffic?</strong><br> Yes. When AI systems reference your brand as a trusted source, users often click through to learn more. AI visibility can increase credibility, brand awareness, and qualified organic
+                traffic.
             </div>
 
-            <div class="faq-item">
-                <strong>Is AI search replacing Google?</strong>
-                <br> AI search is not replacing Google but evolving it. Modern search experiences now combine traditional search results with AI-generated answers, which is why businesses need to optimize for both SEO and AI search visibility.
+            <!-- Hidden FAQs -->
+            <div class="more-faqs">
+
+                <div class="faq-item">
+                    <strong>Is AI search replacing Google?</strong><br> AI search is not replacing Google but evolving it. Modern search experiences now combine traditional search results with AI-generated answers, which is why businesses need to optimize
+                    for both SEO and AI search visibility.
+                </div>
+
             </div>
+
+            <button class="faq-toggle">Read More</button>
 
         </div>
 
     </section>
-
     <section class="bottom-cta">
 
         <div class="container">
@@ -2395,7 +2498,7 @@ Schedule Your AI Search Audit
             </p>
 
             <a href="#lead-form" class="cta">
-           Schedule Your AI Search Audit
+         Get Your AI Search Visibility Audit
         </a>
 
         </div>
@@ -2440,8 +2543,29 @@ Schedule Your AI Search Audit
 
     </footer>
 
-    <a href="#lead-form" class="sticky-cta">Schedule Your AI Search Audit</a>
+    <a href="#lead-form" class="sticky-cta">
+Get Your AI Search Visibility Audit
+</a>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
+            const btn = document.querySelector(".faq-toggle");
+            const moreFaqs = document.querySelector(".more-faqs");
+
+            btn.addEventListener("click", function() {
+
+                if (moreFaqs.style.display === "block") {
+                    moreFaqs.style.display = "none";
+                    btn.textContent = "Read More";
+                } else {
+                    moreFaqs.style.display = "block";
+                    btn.textContent = "Show Less";
+                }
+
+            });
+
+        });
+    </script>
 </body>
 
 </html>
